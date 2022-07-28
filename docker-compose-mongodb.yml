@@ -1,0 +1,12 @@
+version: '3'
+services:
+  company-application-backend:
+    image: mongo:4.2.2
+    environment:
+      MONGO_INITDB_DATABASE: backend
+    ports:
+      - 27017:27017
+
+#docker-compose -f docker-compose-mongodb.yml up
+
+#docker-compose -f docker-compose-mongodb.yml down
