@@ -20,8 +20,8 @@ public class EmployeeService {
         return employees;
     }
 
-    public Optional<Employee> getEmployee(Integer id) {
-        return employeeRepository.findById(id);
+    public Optional<Employee> getEmployee(Integer employeeId) {
+        return employeeRepository.findById(employeeId);
     }
 
     public void addEmployee(Employee employee) {
@@ -32,8 +32,8 @@ public class EmployeeService {
         employeeRepository.save(employee);
     }
 
-    public void deleteEmployee(Integer id, Employee employee) {
-        employeeRepository.deleteById(id);
+    public void deleteEmployee(Integer employeeId, Employee employee) {
+        employeeRepository.deleteById(employeeId);
     }
 
     public void deleteAllEmployees() {

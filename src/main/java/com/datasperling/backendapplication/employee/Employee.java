@@ -1,14 +1,8 @@
 package com.datasperling.backendapplication.employee;
 
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-/*
-* Entity class for employee objects
- */
 @Entity
 public class Employee {
 

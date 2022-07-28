@@ -19,7 +19,8 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     /*
-     * getAll()
+     * getAllEmployees()
+     * @return: all employees in DB
      */
     @RequestMapping(method=RequestMethod.GET, value="/employees")
     public List<Employee> getAllEmployees() {
@@ -27,11 +28,12 @@ public class EmployeeController {
     }
 
     /*
-     * getById(@PathVariable Integer id)
+     * getEmployee(@PathVariable Integer employeeId)
+     * @return: employee with employeeId
      */
-    @RequestMapping(method=RequestMethod.GET, value="/employees/{id}")
-    public Optional<Employee> getEmployee(@PathVariable Integer id) {
-        return employeeService.getEmployee(id);
+    @RequestMapping(method=RequestMethod.GET, value="/employees/{employeeId}")
+    public Optional<Employee> getEmployee(@PathVariable Integer employeeId) {
+        return employeeService.getEmployee(employeeId);
     }
 
     /*
@@ -45,17 +47,17 @@ public class EmployeeController {
     /*
      * updateEmployee(@PathVariable Integer id, @RequestBody Employee employee)
      */
-    @RequestMapping(method=RequestMethod.PUT, value="/employees/{id}")
-    public void updateEmployee(@PathVariable Integer id, @RequestBody Employee employee) {
-        employeeService.updateEmployee(id, employee);
+    @RequestMapping(method=RequestMethod.PUT, value="/employees/{employeeId}")
+    public void updateEmployee(@PathVariable Integer employeeId, @RequestBody Employee employee) {
+        employeeService.updateEmployee(employeeId, employee);
     }
 
     /*
      * deleteEmployee(@PathVariable Integer id)
      */
-    @RequestMapping(method=RequestMethod.DELETE, value="/employees/{id}")
-    public void deleteEmployee(@PathVariable Integer id, @RequestBody Employee employee) {
-        employeeService.deleteEmployee(id, employee);
+    @RequestMapping(method=RequestMethod.DELETE, value="/employees/{employeeId}")
+    public void deleteEmployee(@PathVariable Integer employeeId, @RequestBody Employee employee) {
+        employeeService.deleteEmployee(employeeId, employee);
     }
 
     /*
