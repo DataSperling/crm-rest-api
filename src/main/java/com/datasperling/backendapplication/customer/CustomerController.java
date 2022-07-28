@@ -13,7 +13,7 @@ public class CustomerController {
     private CustomerService customerService;
 
     /*
-     * @return: all customers in database
+     * @return: all customers in DB
      */
     @RequestMapping(method=RequestMethod.GET, value="/customers")
     public List<Customer> getAllCustomers() {
@@ -29,7 +29,7 @@ public class CustomerController {
     }
 
     /*
-     * @return: specific customer with customerId
+     * @return: specific customer with id=customerId
      */
     @RequestMapping(method=RequestMethod.GET, value="/customers/{customerId}")
     public Optional<Customer> getCustomer(@PathVariable Integer customerId) {

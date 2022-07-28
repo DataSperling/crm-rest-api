@@ -2,6 +2,8 @@ package com.datasperling.backendapplication.employee;
 
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /*
@@ -11,10 +13,12 @@ import javax.persistence.Id;
 public class Employee {
 
     @Id
+    //@GeneratedValue(strategy= GenerationType.AUTO)
     private Integer employeeId;
     private String name;
     private String office;
     private String position;
+    // add entity relationship for customer as JSON array
 
     public Employee() {
     }

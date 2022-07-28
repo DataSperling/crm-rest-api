@@ -15,6 +15,7 @@ public class CustomerService {
 
     /*
      * getAllCustomers()
+     * @return: all customers in DB
      */
     public List<Customer> getAllCustomers() {
         List<Customer> customers = new ArrayList<>();
@@ -32,6 +33,10 @@ public class CustomerService {
         return customers;
     }
 
+    /*
+     * getCustomer(Integer id)
+     * @return: customer with id-customerId
+     */
     public Optional<Customer> getCustomer(Integer customerId) {
         return customerRepository.findById(customerId);
     }
