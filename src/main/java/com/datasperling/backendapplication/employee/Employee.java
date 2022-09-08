@@ -17,7 +17,10 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(Integer employeeId, String name, String office, String position) {
+    public Employee(Integer employeeId,
+                    String name,
+                    String office,
+                    String position) {
         this.employeeId = employeeId;
         this.name = name;
         this.office = office;

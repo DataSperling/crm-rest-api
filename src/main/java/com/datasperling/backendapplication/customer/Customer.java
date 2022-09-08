@@ -12,7 +12,10 @@ public class Customer {
     private String firm;
     private String business;
 
-    public Customer(Integer customerId, String name, String firm, String business) {
+    public Customer(Integer customerId,
+                    String name,
+                    String firm,
+                    String business) {
         this.customerId = customerId;
         this.name = name;
         this.firm = firm;
@@ -26,9 +29,7 @@ public class Customer {
         return customerId;
     }
 
-    public void setCustomerId(Integer id) {
-        this.customerId = customerId;
-    }
+    public void setCustomerId(Integer id) {}
 
     public String getName() {
         return name;
