@@ -1,4 +1,4 @@
-package com.datasperling.backendapplication.customer;
+package com.datasperling.company.crm.api.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

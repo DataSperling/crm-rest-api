@@ -1,8 +1,11 @@
-package com.datasperling.backendapplication.employee;
+package com.datasperling.company.crm.api.employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,9 +34,30 @@ public class EmployeeController {
      * getEmployee(@PathVariable Integer employeeId)
      * @return: employee with employeeId
      */
-    @RequestMapping(method=RequestMethod.GET, value="/employees/{employeeId}")
-    public Optional<Employee> getEmployee(@PathVariable Integer employeeId) {
-        return employeeService.getEmployee(employeeId);
+//    @RequestMapping(method=RequestMethod.GET, value="/employees/{employeeId}")
+//    public Optional<Employee> getEmployee(@PathVariable int employeeId) {
+//        return employeeService.getEmployee(employeeId);
+//    }
+
+    /*
+     * get employee by employeeId
+     */
+    @RequestMapping(method=RequestMethod.GET, value="/employees/EmployeeId/{employeeId}")
+    public List<Employee> getEmployeeByEmployeeId(@PathVariable int employeeId) {
+        return employeeService.getEmployeeByEmployeeId(employeeId);
+    }
+
+    /*
+     * get employee by firstName
+     */
+    @RequestMapping(method=RequestMethod.GET, value="/employees/FirstName/{firstName}")
+    public List<Employee> getEmployeesByFirstName(@PathVariable("firstName") String firstName) {
+        List<Employee> employee = employeeService.getEmployeesByFirstName(firstName);
+        if (employee.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format(
+                "Employee with first name %s not found", firstName));
+        }
+        return employee;
     }
 
     /*
@@ -48,7 +72,7 @@ public class EmployeeController {
      * updateEmployee(@PathVariable Integer id, @RequestBody Employee employee)
      */
     @RequestMapping(method=RequestMethod.PUT, value="/employees/{employeeId}")
-    public void updateEmployee(@PathVariable Integer employeeId, @RequestBody Employee employee) {
+    public void updateEmployee(@PathVariable int employeeId, @RequestBody Employee employee) {
         employeeService.updateEmployee(employeeId, employee);
     }
 
@@ -56,7 +80,7 @@ public class EmployeeController {
      * deleteEmployee(@PathVariable Integer id)
      */
     @RequestMapping(method=RequestMethod.DELETE, value="/employees/{employeeId}")
-    public void deleteEmployee(@PathVariable Integer employeeId, @RequestBody Employee employee) {
+    public void deleteEmployee(@PathVariable int employeeId, @RequestBody Employee employee) {
         employeeService.deleteEmployee(employeeId, employee);
     }
 

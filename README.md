@@ -1,4 +1,4 @@
 
-### REST API for CRUD operations on MySQL database (+Docker:MongoDB)
+## REST API for CRUD operations on MySQL database of customer data
 
-## Gradle, Java 8, 
+## Gradle, Java 8, MySQL, Spring-MVC

@@ -1,4 +1,4 @@
-package com.datasperling.backendapplication.employee;
+package com.datasperling.company.crm.api.employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,19 +20,27 @@ public class EmployeeService {
         return employees;
     }
 
-    public Optional<Employee> getEmployee(Integer employeeId) {
-        return employeeRepository.findById(employeeId);
+//    public Optional<Employee> getEmployee(int employeeId) {
+//        return employeeRepository.findById(employeeId);
+//    }
+
+    public List<Employee> getEmployeeByEmployeeId(int employeeId) {
+        return employeeRepository.findByEmployeeId(employeeId);
+    }
+
+    public List<Employee> getEmployeesByFirstName(String firstName) {
+        return employeeRepository.findByFirstName(firstName);
     }
 
     public void addEmployee(Employee employee) {
         employeeRepository.save(employee);
     }
 
-    public void updateEmployee(Integer id, Employee employee) {
+    public void updateEmployee(int employeeId, Employee employee) {
         employeeRepository.save(employee);
     }
 
-    public void deleteEmployee(Integer employeeId, Employee employee) {
+    public void deleteEmployee(int employeeId, Employee employee) {
         employeeRepository.deleteById(employeeId);
     }
 
