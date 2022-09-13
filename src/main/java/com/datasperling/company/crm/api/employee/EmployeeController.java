@@ -31,20 +31,16 @@ public class EmployeeController {
     }
 
     /*
-     * getEmployee(@PathVariable Integer employeeId)
-     * @return: employee with employeeId
-     */
-//    @RequestMapping(method=RequestMethod.GET, value="/employees/{employeeId}")
-//    public Optional<Employee> getEmployee(@PathVariable int employeeId) {
-//        return employeeService.getEmployee(employeeId);
-//    }
-
-    /*
      * get employee by employeeId
      */
     @RequestMapping(method=RequestMethod.GET, value="/employees/EmployeeId/{employeeId}")
     public List<Employee> getEmployeeByEmployeeId(@PathVariable int employeeId) {
-        return employeeService.getEmployeeByEmployeeId(employeeId);
+        List<Employee> employee = employeeService.getEmployeeByEmployeeId(employeeId);
+        if (employee.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format(
+                "Employee with employee id %d not found", employeeId));
+        }
+        return employee;
     }
 
     /*

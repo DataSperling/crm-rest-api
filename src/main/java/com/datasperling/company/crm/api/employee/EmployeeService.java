@@ -20,10 +20,6 @@ public class EmployeeService {
         return employees;
     }
 
-//    public Optional<Employee> getEmployee(int employeeId) {
-//        return employeeRepository.findById(employeeId);
-//    }
-
     public List<Employee> getEmployeeByEmployeeId(int employeeId) {
         return employeeRepository.findByEmployeeId(employeeId);
     }
